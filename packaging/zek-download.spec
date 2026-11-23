@@ -1,7 +1,7 @@
 # Plano B: build nativo no Fedora ->  rpmbuild -bb --build-in-place packaging/zek-download.spec
 %global debug_package %{nil}
 Name:           zek-download
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Baixador de vídeos e músicas de vários sites
 License:        MIT
@@ -25,7 +25,7 @@ os sites mudam.
 %install
 install -Dm755 packaging/zek-download %{buildroot}%{_bindir}/zek-download
 install -d %{buildroot}%{_prefix}/lib/zek-download/zekdl
-install -m644 src/zek-download/*.py %{buildroot}%{_prefix}/lib/zek-download/zekdl/
+install -m644 src/zekdl/*.py %{buildroot}%{_prefix}/lib/zek-download/zekdl/
 install -Dm644 packaging/io.github.aaaiiicerol.ZekDownload.desktop %{buildroot}%{_datadir}/applications/io.github.aaaiiicerol.ZekDownload.desktop
 install -Dm644 packaging/io.github.aaaiiicerol.ZekDownload.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/io.github.aaaiiicerol.ZekDownload.svg
 install -Dm644 README.md %{buildroot}%{_docdir}/zek-download/README.md
