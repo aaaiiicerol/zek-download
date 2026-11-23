@@ -44,8 +44,6 @@ Dá para colar vários links de uma vez (viram uma fila) e baixar playlists inte
   muito pouco. Se uma opção sumir numa versão futura, o app faz fallback quando possível.
 - Se a versão estável ainda não corrigiu, ative o canal **Nightly** em Configurações.
 
-Ou seja: **você não precisa publicar uma nova versão do Zek Download a cada atualização do yt-dlp.**
-Só será preciso mexer no Zek Download se o yt-dlp mudar o *formato dos argumentos/saída* de forma incompatível.
 
 ## Desenvolvimento
 ```bash
