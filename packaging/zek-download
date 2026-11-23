@@ -1,0 +1,8 @@
+#!/usr/bin/python3 -I
+# Launcher do Zek Download. "-I" = modo isolado (ignora PYTHONPATH e site do usuário).
+import sys
+
+sys.path.insert(0, "/usr/lib/zek-download")
+from zekdl.app import main  # noqa: E402
+
+sys.exit(main())

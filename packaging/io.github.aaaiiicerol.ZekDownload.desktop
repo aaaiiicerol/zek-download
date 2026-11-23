@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Zek Download
+GenericName=Baixador de vídeos e músicas
+Comment=Baixe vídeos e músicas de vários sites
+Exec=zek-download %U
+Icon=io.github.aaaiiicerol.ZekDownload
+Terminal=false
+Categories=AudioVideo;Network;Video;Audio;
+Keywords=download;baixar;video;musica;mp3;yt-dlp;youtube;
+StartupNotify=true
+StartupWMClass=io.github.aaaiiicerol.ZekDownload
