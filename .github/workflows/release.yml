@@ -1,0 +1,49 @@
+name: Build release installers
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-gi gir1.2-gtk-3.0 ffmpeg ca-certificates
+
+      - name: Run tests
+        run: python3 tests/test_core.py
+
+      - name: Build packages (.deb + .rpm)
+        run: python3 packaging/build_packages.py all
+
+      - name: List dist
+        run: ls -lh dist/
+
+      - name: Create/update release and upload installers
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          # Cria o release se ainda não existir (útil se a tag foi push antes do release)
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "Zek Download $TAG" --generate-notes
+          fi
+          # Faz upload dos instaladores (substitui se já existir)
+          for f in dist/*; do
+            gh release upload "$TAG" "$f" --clobber
+          done
