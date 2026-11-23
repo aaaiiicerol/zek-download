@@ -11,7 +11,9 @@ Requires:       /usr/bin/python3
 Requires:       python3-gobject
 Requires:       gtk3
 Requires:       ca-certificates
-Requires:       /usr/bin/ffmpeg
+# ffmpeg/ffmpeg-free necessário para mesclar vídeo e áudio.
+# No Fedora, ffmpeg-free vem nos repositórios oficiais; o ffmpeg completo fica no RPM Fusion.
+Recommends:     ffmpeg-free
 Recommends:     nodejs
 
 %description
