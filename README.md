@@ -7,16 +7,23 @@ Usa o [yt-dlp](https://github.com/yt-dlp/yt-dlp) por baixo — e **se mantém at
 
 **Linux Mint / Ubuntu / Debian**
 ```bash
-sudo apt install ./zek-download_1.1.0_all.deb
+sudo apt install ./zek-download_1.1.1_all.deb
 ```
+
 **Fedora**
 ```bash
-sudo dnf install ./zek-download-1.1.0-1.noarch.rpm
+# Instale o RPM gerado pelo rpmbuild (válido no DNF):
+sudo dnf install -y ~/rpmbuild/RPMS/noarch/zek-download-1.1.1-1.fc*.noarch.rpm
+
+# Ou, se baixou o .rpm direto do GitHub release:
+sudo dnf install -y --nogpgcheck zek-download-1.1.1-1.fc45.noarch.rpm
 ```
+
 Depois abra **Zek Download** no menu de aplicativos (ou rode `zek-download`). Na primeira vez ele baixa o motor de
 download (poucos segundos) — precisa de internet.
 
-> Fedora: o `ffmpeg` completo vem do RPM Fusion; o `ffmpeg-free` dos repositórios oficiais já resolve a dependência.
+> Fedora: o `ffmpeg-free` dos repositórios oficiais já resolve a dependência de mesclagem de vídeo/áudio.  
+> O `ffmpeg` completo vem do RPM Fusion.  
 > YouTube: instale também o `nodejs` (já é "Recomendado" no pacote) — o yt-dlp usa para decifrar os links.
 
 ## Como usar
@@ -43,8 +50,13 @@ Só será preciso mexer no Zek Download se o yt-dlp mudar o *formato dos argumen
 ./build.sh                 # testes + gera dist/*.deb e dist/*.rpm
 python3 tests/test_core.py # só os testes
 ```
+
 Estrutura: `engine.py` (motor/atualização), `downloader.py` (links, argumentos, progresso, erros),
 `manager.py` (fila + autocura), `app.py` (interface GTK 3), `settings.py`, `style.py` (tema).
+
+Releases automáticos: ao pushar uma tag `v*` no GitHub, o [GitHub Actions](.github/workflows/release.yml)
+gera os instaladores `.deb` e `.rpm` e anexa ao release.
+
 Plano B no Fedora: `rpmbuild -bb --build-in-place packaging/zek-download.spec`.
 
 Use apenas para conteúdo que você tem direito de baixar. Veja `SECURITY.md` para detalhes de segurança.
