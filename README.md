@@ -3,6 +3,8 @@
 Baixe **vídeos e músicas** de milhares de sites com uma interface simples e profissional.
 Usa o [yt-dlp](https://github.com/yt-dlp/yt-dlp) por baixo — e **se mantém atualizado sozinho**.
 
+![Prévia do Zek Download](docs/screenshots/screenshot.png)
+
 ## Instalar
 
 **Linux Mint / Ubuntu / Debian**
