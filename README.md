@@ -59,5 +59,11 @@ gera os instaladores `.deb` e `.rpm` e anexa ao release.
 
 Plano B no Fedora: `rpmbuild -bb --build-in-place packaging/zek-download.spec`.
 
-Use apenas para conteúdo que você tem direito de baixar. Veja `SECURITY.md` para detalhes de segurança.
+### ⚠️ Aviso sobre direitos autorais
+
+O Zek Download é uma ferramenta destinada ao download de conteúdos próprios, de domínio público ou cujo download tenha sido expressamente autorizado pelo titular dos direitos.
+
+O usuário é inteiramente responsável pelo uso do programa e deve respeitar as leis de direitos autorais e os termos de serviço das plataformas utilizadas.
+
+**Não utilize o Zek Download para baixar ou distribuir conteúdos protegidos sem a devida autorização.**. Veja `SECURITY.md` para detalhes de segurança.
 Licença: MIT.
